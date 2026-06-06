@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/style.css?v=3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
 </head>
 <body>
 
@@ -68,6 +68,7 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
+      <div class="hero-photo" aria-hidden="true"></div>
       <div class="hero-pattern" aria-hidden="true"></div>
       <div class="container hero-inner">
         <p class="eyebrow eyebrow--light reveal">Authentic Turkish Street Food · Established in Sydney</p>
@@ -111,11 +112,9 @@
     <!-- ============ STORY ============ -->
     <section class="story" id="story">
       <div class="container story-grid">
-        <div class="story-visual reveal" aria-hidden="true">
-          <div class="story-emblem">
-            <img src="assets/img/logo.svg" alt="" />
-          </div>
-          <div class="story-visual-caption">Family-run · Since day one</div>
+        <div class="story-visual story-visual--photo reveal">
+          <img src="assets/img/menu/gozleme2.jpg" alt="Hand-rolled gözleme cooked to order at Eat Istanbul" loading="lazy" />
+          <span class="story-visual-tag">Hand-rolled, made to order</span>
         </div>
         <div class="story-copy">
           <p class="eyebrow reveal">Our Story</p>
@@ -136,58 +135,77 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">The Menu</p>
-          <h2>Istanbul's street classics</h2>
-          <p class="section-lead">A taste of what's on offer. Menus vary slightly by shop — see the full list and prices in store or when you order online.</p>
+          <h2>Made fresh, the Istanbul way</h2>
+          <p class="section-lead">Wraps, boxes, hand-rolled gözleme and loaded snack packs — every order grilled to order. Here are the favourites; build your own when you order online.</p>
         </div>
 
-        <div class="menu-grid">
+        <div class="dish-grid">
 
-          <div class="menu-card reveal">
-            <h3 class="menu-card-title">Kebabs &amp; Plates</h3>
-            <ul class="menu-list">
-              <li><span class="dish">Mixed Grill Plate</span><span class="desc">Shish lamb, chicken &amp; adana over rice with salad &amp; sauces</span></li>
-              <li><span class="dish">Lamb Shish Kebab</span><span class="desc">Marinated lamb, charcoal-grilled, in fresh Turkish bread</span></li>
-              <li><span class="dish">Chicken Shish Kebab</span><span class="desc">Tender chicken skewers with garlic &amp; chilli sauce</span></li>
-              <li><span class="dish">Adana Kebab</span><span class="desc">Hand-minced spiced lamb, flame-grilled on the skewer</span></li>
-              <li><span class="dish">İskender</span><span class="desc">Sliced doner over toasted bread, tomato &amp; yoghurt</span></li>
-              <li><span class="dish">Falafel Plate <em class="veg">V</em></span><span class="desc">House-made crispy falafel, hummus &amp; salad</span></li>
-            </ul>
-          </div>
+          <article class="dish-card reveal">
+            <div class="dish-photo" style="background-image:url('assets/img/menu/kebab-box.jpg')"></div>
+            <div class="dish-body">
+              <div class="dish-head"><h3>Kebab Box</h3><span class="dish-price">$18.95</span></div>
+              <p>Gourmet beef, chicken or mixed in a box with up to 2 sides &amp; 2 sauces.</p>
+            </div>
+          </article>
 
-          <div class="menu-card reveal">
-            <h3 class="menu-card-title">Snack Packs &amp; Wraps</h3>
-            <ul class="menu-list">
-              <li><span class="dish">Loaded Snack Pack</span><span class="desc">Hot chips topped with your choice of meat &amp; sauces</span></li>
-              <li><span class="dish">HSP Deluxe</span><span class="desc">The classic, loaded with cheese and the lot</span></li>
-              <li><span class="dish">Lamb Doner Wrap</span><span class="desc">Shaved lamb, salad &amp; sauce rolled in Turkish bread</span></li>
-              <li><span class="dish">Chicken Doner Wrap</span><span class="desc">Shaved chicken, salad &amp; garlic sauce</span></li>
-              <li><span class="dish">Falafel Wrap <em class="veg">V</em></span><span class="desc">Crispy falafel, hummus, salad &amp; tahini</span></li>
-            </ul>
-          </div>
+          <article class="dish-card reveal">
+            <div class="dish-photo" style="background-image:url('assets/img/menu/skewer.jpg')"></div>
+            <div class="dish-body">
+              <div class="dish-head"><h3>Wood-Fired Skewers</h3><span class="dish-price">from $9.99</span></div>
+              <p>Grilled chicken or lamb skewers — single, in a wrap, or boxed with sides.</p>
+            </div>
+          </article>
 
-          <div class="menu-card reveal">
-            <h3 class="menu-card-title">Gözleme &amp; Pide</h3>
-            <ul class="menu-list">
-              <li><span class="dish">Spinach &amp; Feta Gözleme <em class="veg">V</em></span><span class="desc">Hand-rolled and griddle-cooked to order</span></li>
-              <li><span class="dish">Lamb Gözleme</span><span class="desc">Spiced minced lamb, onion &amp; herbs</span></li>
-              <li><span class="dish">Lahmacun</span><span class="desc">Thin flatbread, spiced lamb, herbs &amp; lemon</span></li>
-              <li><span class="dish">Turkish Pide</span><span class="desc">Boat-shaped flatbread — cheese, sucuk or lamb</span></li>
-            </ul>
-          </div>
+          <article class="dish-card reveal">
+            <div class="dish-photo" style="background-image:url('assets/img/menu/snack-pack.jpg')"></div>
+            <div class="dish-body">
+              <div class="dish-head"><h3>Snack Pack</h3><span class="dish-price">$17.95</span></div>
+              <p>Hot chips loaded with your choice of meat and up to 2 sauces.</p>
+            </div>
+          </article>
 
-          <div class="menu-card reveal">
-            <h3 class="menu-card-title">Sweets &amp; Drinks</h3>
-            <ul class="menu-list">
-              <li><span class="dish">Baklava</span><span class="desc">Layered filo with pistachio &amp; honey</span></li>
-              <li><span class="dish">Turkish Delight</span><span class="desc">Rosewater &amp; pistachio, the real thing</span></li>
-              <li><span class="dish">Turkish Tea (Çay)</span><span class="desc">Brewed strong, served in a tulip glass</span></li>
-              <li><span class="dish">Turkish Coffee</span><span class="desc">Rich, traditional, finely ground</span></li>
-              <li><span class="dish">Ayran <em class="veg">V</em></span><span class="desc">Chilled salted yoghurt drink</span></li>
-            </ul>
-          </div>
+          <article class="dish-card reveal">
+            <div class="dish-photo" style="background-image:url('assets/img/menu/gozleme.jpg')"></div>
+            <div class="dish-body">
+              <div class="dish-head"><h3>Gözleme <em class="veg">V</em></h3><span class="dish-price">$13.95</span></div>
+              <p>Hand-rolled with beef, chicken or spinach, mozzarella &amp; feta.</p>
+            </div>
+          </article>
+
+          <article class="dish-card reveal">
+            <div class="dish-photo" style="background-image:url('assets/img/menu/falafel.jpg')"></div>
+            <div class="dish-body">
+              <div class="dish-head"><h3>Falafel <em class="veg">V</em></h3><span class="dish-price">from $13.95</span></div>
+              <p>Crispy house falafel in a wrap or box with tabouli &amp; leafy salad.</p>
+            </div>
+          </article>
+
+          <article class="dish-card reveal">
+            <div class="dish-photo" style="background-image:url('assets/img/menu/baklava.jpg')"></div>
+            <div class="dish-body">
+              <div class="dish-head"><h3>Baklava</h3><span class="dish-price">$4.50</span></div>
+              <p>Layered filo with pistachio &amp; honey — the perfect finish.</p>
+            </div>
+          </article>
 
         </div>
-        <p class="menu-foot reveal"><em class="veg">V</em> = vegetarian · Ask our team about vegan &amp; gluten-free options.</p>
+        <div class="menu-cta reveal">
+          <a href="order.html" class="btn btn-gold btn-lg">View full menu &amp; order</a>
+          <p class="menu-foot"><em class="veg">V</em> = vegetarian · halal · ask our team about other options.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="gallery" aria-label="Our food">
+      <div class="gallery-strip">
+        <div class="gallery-img" style="background-image:url('assets/img/menu/skewer.jpg')"></div>
+        <div class="gallery-img" style="background-image:url('assets/img/menu/snack-pack.jpg')"></div>
+        <div class="gallery-img" style="background-image:url('assets/img/menu/falafel.jpg')"></div>
+        <div class="gallery-img" style="background-image:url('assets/img/menu/single-skewer.jpg')"></div>
+        <div class="gallery-img" style="background-image:url('assets/img/menu/hot-chips.jpg')"></div>
+        <div class="gallery-img" style="background-image:url('assets/img/menu/baklava.jpg')"></div>
       </div>
     </section>
 
@@ -223,7 +241,7 @@
               The Canteen<br>
               200 Barangaroo Ave, Sydney NSW 2000
             </address>
-            <p class="loc-hours"><strong>Mon–Fri</strong> 9am–4pm</p>
+            <p class="loc-hours"><strong>Mon–Sat</strong> 9am–5pm · Sun closed</p>
             <div class="loc-actions">
               <a class="btn btn-sm btn-ghost-dark" href="https://www.google.com/maps/search/?api=1&query=Eat+Istanbul+The+Canteen+Barangaroo+Avenue+Sydney" target="_blank" rel="noopener">Directions</a>
               <a class="btn btn-sm btn-gold" href="order.html?shop=barangaroo">Order</a>
@@ -376,6 +394,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/main.js?v=4"></script>
 </body>
 </html>

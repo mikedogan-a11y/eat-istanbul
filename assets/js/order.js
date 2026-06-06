@@ -1,133 +1,143 @@
 /* ===========================================================
    Eat Istanbul — online ordering (pick-up)
-   Pure front-end. Prices in AUD. Assumptions noted in README.
+   Real menu, descriptions & photos sourced from
+   eatistanbulsydney.com. Prices in AUD — informed by the
+   Eat Istanbul listing; confirm against the Square dashboard.
    =========================================================== */
 (function () {
   'use strict';
 
   /* -------------------- option groups (reusable) -------------------- */
   var GROUPS = {
-    meat: {
-      label: 'Choose your meat', type: 'single', required: true,
+    meat_kebab: {
+      label: 'Choose your kebab meat', type: 'single', required: true,
       options: [
-        { label: 'Lamb', price: 0 },
+        { label: 'Gourmet Beef', price: 0 },
         { label: 'Chicken', price: 0 },
-        { label: 'Mixed (lamb & chicken)', price: 1.5 }
+        { label: 'Mixed (beef & chicken)', price: 1.5 }
       ]
     },
-    bread: {
-      label: 'Bread', type: 'single', required: true,
+    meat_skewer: {
+      label: 'Choose your skewer', type: 'single', required: true,
       options: [
-        { label: 'Turkish bread', price: 0 },
-        { label: 'Wrap', price: 0 },
-        { label: 'Pita', price: 0 }
-      ]
-    },
-    size: {
-      label: 'Size', type: 'single', required: true,
-      options: [
-        { label: 'Small', price: 0 },
-        { label: 'Large', price: 4 }
+        { label: 'Chicken', price: 0 },
+        { label: 'Lamb', price: 0 }
       ]
     },
     sauces: {
-      label: 'Sauces (choose any)', type: 'multi', required: false,
+      label: 'Sauces (up to 2 included)', type: 'multi', required: false,
       options: [
         { label: 'Garlic', price: 0 },
         { label: 'Chilli', price: 0 },
         { label: 'BBQ', price: 0 },
         { label: 'Tomato', price: 0 },
         { label: 'Yoghurt', price: 0 },
-        { label: 'Hummus', price: 0.5 }
+        { label: 'Hummus', price: 0 },
+        { label: 'Tahini', price: 0 }
       ]
     },
-    meal: {
-      label: 'Make it a meal', type: 'single', required: false,
+    sides2: {
+      label: 'Choose your sides (up to 2)', type: 'multi', required: false,
       options: [
-        { label: 'No thanks', price: 0 },
-        { label: 'Add chips + soft drink', price: 5 }
+        { label: 'Tabouli', price: 0 },
+        { label: 'Leafy green salad', price: 0 },
+        { label: 'Turkish rice', price: 0 },
+        { label: 'Hummus', price: 0 },
+        { label: 'Chips', price: 0 }
+      ]
+    },
+    sides3: {
+      label: 'Choose your sides (up to 3)', type: 'multi', required: false,
+      options: [
+        { label: 'Tabouli', price: 0 },
+        { label: 'Leafy green salad', price: 0 },
+        { label: 'Turkish rice', price: 0 },
+        { label: 'Hummus', price: 0 },
+        { label: 'Chips', price: 0 }
+      ]
+    },
+    chip_size: {
+      label: 'Size', type: 'single', required: true,
+      options: [
+        { label: 'Small', price: 0 },
+        { label: 'Regular', price: 1.5 },
+        { label: 'Large', price: 3 }
+      ]
+    },
+    drink_size: {
+      label: 'Size', type: 'single', required: true,
+      options: [
+        { label: 'Small', price: 0 },
+        { label: 'Large', price: 1.5 }
       ]
     }
   };
 
-  /* -------------------- the menu -------------------- */
-  // Each item: key, name, desc, price (base AUD), veg?, groups[]
+  /* -------------------- the menu (real items) -------------------- */
+  // img paths relative to site root. Prices indicative — confirm in Square.
   var ITEMS = {
-    // Kebabs & Plates
-    mixed_grill:   { name: 'Mixed Grill Plate', desc: 'Shish lamb, chicken & adana over rice with salad & sauces', price: 22.90, groups: ['sauces'] },
-    lamb_shish:    { name: 'Lamb Shish Kebab', desc: 'Marinated lamb, charcoal-grilled', price: 16.90, groups: ['bread', 'sauces', 'meal'] },
-    chicken_shish: { name: 'Chicken Shish Kebab', desc: 'Tender chicken skewers', price: 15.90, groups: ['bread', 'sauces', 'meal'] },
-    adana:         { name: 'Adana Kebab', desc: 'Hand-minced spiced lamb, flame-grilled', price: 16.90, groups: ['bread', 'sauces', 'meal'] },
-    iskender:      { name: 'İskender', desc: 'Sliced doner over toasted bread, tomato & yoghurt', price: 19.90, groups: ['meat'] },
-    falafel_plate: { name: 'Falafel Plate', desc: 'House-made crispy falafel, hummus & salad', price: 15.90, veg: true, groups: ['sauces'] },
+    // KEBAB
+    kebab_wrap: { name: 'Kebab Wrap', desc: 'Gourmet beef, chicken or mixed with leafy green salad, tomato, Spanish onion & up to 2 sauces', price: 14.95, img: 'assets/img/menu/kebab-box.jpg', groups: ['meat_kebab', 'sauces'] },
+    kebab_box:  { name: 'Kebab Box', desc: 'Kebab in a box with up to 2 sides & 2 sauces', price: 18.95, img: 'assets/img/menu/kebab-box.jpg', groups: ['meat_kebab', 'sides2', 'sauces'] },
 
-    // Snack Packs & Wraps
-    snack_pack:    { name: 'Loaded Snack Pack', desc: 'Hot chips topped with meat & sauces', price: 13.90, groups: ['size', 'meat', 'sauces'] },
-    hsp_deluxe:    { name: 'HSP Deluxe', desc: 'The classic, loaded with cheese and the lot', price: 18.90, groups: ['meat', 'sauces'] },
-    lamb_wrap:     { name: 'Lamb Doner Wrap', desc: 'Shaved lamb, salad & sauce', price: 13.90, groups: ['sauces', 'meal'] },
-    chicken_wrap:  { name: 'Chicken Doner Wrap', desc: 'Shaved chicken, salad & garlic sauce', price: 13.90, groups: ['sauces', 'meal'] },
-    falafel_wrap:  { name: 'Falafel Wrap', desc: 'Crispy falafel, hummus, salad & tahini', price: 12.90, veg: true, groups: ['sauces', 'meal'] },
+    // SKEWERS (wood-fired shish)
+    skewer_wrap: { name: 'Skewer Wrap', desc: 'Grilled chicken or lamb in a wrap with leafy green salad, tomato, Spanish onion & up to 2 sauces', price: 14.95, img: 'assets/img/menu/skewer.jpg', groups: ['meat_skewer', 'sauces'] },
+    skewer_box:  { name: 'Skewer Box', desc: 'Grilled chicken or lamb skewer in a box with up to 2 sides & 2 sauces', price: 18.95, img: 'assets/img/menu/skewer.jpg', groups: ['meat_skewer', 'sides2', 'sauces'] },
+    single_skewer: { name: 'Single Skewer', desc: 'Grilled chicken or lamb skewer, single serve', price: 9.99, img: 'assets/img/menu/single-skewer.jpg', groups: ['meat_skewer'] },
 
-    // Gözleme & Pide
-    goz_spinach:   { name: 'Spinach & Feta Gözleme', desc: 'Hand-rolled, griddle-cooked to order', price: 12.90, veg: true, groups: [] },
-    goz_lamb:      { name: 'Lamb Gözleme', desc: 'Spiced minced lamb, onion & herbs', price: 13.90, groups: [] },
-    lahmacun:      { name: 'Lahmacun', desc: 'Thin flatbread, spiced lamb, herbs & lemon', price: 9.90, groups: [] },
-    pide:          { name: 'Turkish Pide', desc: 'Boat-shaped flatbread', price: 14.90, groups: [] },
+    // FALAFEL (veg)
+    falafel_wrap: { name: 'Falafel Wrap', desc: 'With tabouli, leafy green salad, tomato, Spanish onion & up to 2 sauces', price: 13.95, img: 'assets/img/menu/falafel.jpg', veg: true, groups: ['sauces'] },
+    falafel_box:  { name: 'Falafel Box', desc: 'Falafel in a box with 3 sides & up to 2 sauces', price: 17.95, img: 'assets/img/menu/falafel.jpg', veg: true, groups: ['sides3', 'sauces'] },
 
-    // Sides
-    chips:         { name: 'Chips', desc: 'Sea-salted hot chips', price: 6.90, veg: true, groups: [] },
-    hummus_side:   { name: 'Hummus & Bread', desc: 'House hummus with warm Turkish bread', price: 6.90, veg: true, groups: [] },
-    salad_side:    { name: 'Turkish Salad', desc: 'Tomato, cucumber, onion, parsley & sumac', price: 7.90, veg: true, groups: [] },
-    rice_side:     { name: 'Rice', desc: 'Buttered Turkish pilav', price: 4.50, veg: true, groups: [] },
+    // GOZLEME (hand-rolled)
+    gozleme_beef:    { name: 'Gözleme — Beef', desc: 'Ground beef, mushroom, mozzarella & feta', price: 13.95, img: 'assets/img/menu/gozleme2.jpg', groups: [] },
+    gozleme_chicken: { name: 'Gözleme — Chicken', desc: 'Chicken, mushroom, mozzarella & feta', price: 13.95, img: 'assets/img/menu/gozleme.jpg', groups: [] },
+    gozleme_veg:     { name: 'Gözleme — Vegetarian', desc: 'Spinach, mozzarella & feta', price: 13.95, img: 'assets/img/menu/gozleme.jpg', veg: true, groups: [] },
 
-    // Sweets & Drinks
-    baklava:       { name: 'Baklava (2 pc)', desc: 'Layered filo, pistachio & honey', price: 6.50, veg: true, groups: [] },
-    turkish_delight:{ name: 'Turkish Delight', desc: 'Rosewater & pistachio', price: 3.50, veg: true, groups: [] },
-    cay:           { name: 'Turkish Tea (Çay)', desc: 'Brewed strong, tulip glass', price: 3.50, veg: true, groups: [] },
-    turkish_coffee:{ name: 'Turkish Coffee', desc: 'Rich, traditional, finely ground', price: 4.50, veg: true, groups: [] },
-    ayran:         { name: 'Ayran', desc: 'Chilled salted yoghurt drink', price: 3.90, veg: true, groups: [] },
-    soft_drink:    { name: 'Soft Drink', desc: 'Can — assorted', price: 3.50, veg: true, groups: [] },
+    // SNACK PACK
+    snack_pack: { name: 'Snack Pack', desc: 'Chips loaded with your choice of meat & up to 2 sauces', price: 17.95, img: 'assets/img/menu/snack-pack.jpg', groups: ['meat_kebab', 'sauces'] },
 
-    // Shop-specific extras
-    breakfast_goz: { name: 'Breakfast Gözleme', desc: 'Egg, cheese & sucuk, griddle-cooked', price: 13.90, groups: [] },
-    menemen:       { name: 'Menemen', desc: 'Turkish-style eggs with tomato, capsicum & herbs', price: 14.90, veg: true, groups: [] },
-    student_combo: { name: 'Student Combo', desc: 'Any doner wrap + chips + soft drink', price: 15.90, groups: ['sauces'] }
+    // SIDES
+    hot_chips: { name: 'Hot Chips', desc: 'Sea-salted, small / regular / large', price: 5.00, img: 'assets/img/menu/hot-chips.jpg', veg: true, groups: ['chip_size'] },
+
+    // SWEETS
+    baklava: { name: 'Baklava', desc: 'Layered filo with pistachio & honey', price: 4.50, img: 'assets/img/menu/baklava.jpg', veg: true, groups: [] },
+
+    // DRINKS
+    drink: { name: 'Soft Drink', desc: 'Assorted cans & bottles', price: 3.00, veg: true, groups: ['drink_size'] }
   };
 
-  // Category display order
   var CATEGORIES = [
-    { title: 'Kebabs & Plates', keys: ['mixed_grill', 'lamb_shish', 'chicken_shish', 'adana', 'iskender', 'falafel_plate'] },
-    { title: 'Snack Packs & Wraps', keys: ['snack_pack', 'hsp_deluxe', 'lamb_wrap', 'chicken_wrap', 'falafel_wrap'] },
-    { title: 'Gözleme & Pide', keys: ['goz_spinach', 'goz_lamb', 'lahmacun', 'pide'] },
-    { title: 'Sides', keys: ['chips', 'hummus_side', 'salad_side', 'rice_side'] },
-    { title: 'Sweets & Drinks', keys: ['baklava', 'turkish_delight', 'cay', 'turkish_coffee', 'ayran', 'soft_drink'] }
+    { title: 'Kebab', keys: ['kebab_wrap', 'kebab_box'] },
+    { title: 'Skewers', keys: ['skewer_wrap', 'skewer_box', 'single_skewer'] },
+    { title: 'Falafel', keys: ['falafel_wrap', 'falafel_box'] },
+    { title: 'Gözleme', keys: ['gozleme_beef', 'gozleme_chicken', 'gozleme_veg'] },
+    { title: 'Snack Pack', keys: ['snack_pack'] },
+    { title: 'Sides & Sweets', keys: ['hot_chips', 'baklava', 'drink'] }
   ];
 
   /* -------------------- the shops -------------------- */
-  // open/close in 24h decimal hours. extra = items added to this shop.
-  // exclude = items hidden at this shop.
+  // hours in 24h decimal. Barangaroo hours are the real online-store hours.
   var SHOPS = {
-    mlc: {
-      name: 'MLC Centre', area: 'CBD · 19 Martin Place',
-      open: 9, close: 16, days: 'Mon–Fri',
-      extra: [], exclude: []
-    },
     barangaroo: {
       name: 'Barangaroo', area: 'The Canteen · 200 Barangaroo Ave',
-      open: 9, close: 16, days: 'Mon–Fri',
-      // morning trade — add a breakfast section
-      extra: [{ category: 'Breakfast (till 11am)', keys: ['breakfast_goz', 'menemen'] }], exclude: []
+      open: 9, close: 17, days: 'Mon–Sat', closedSun: true,
+      extra: [], exclude: []
+    },
+    mlc: {
+      name: 'MLC Centre', area: 'CBD · 19 Martin Place',
+      open: 9, close: 16, days: 'Mon–Fri', closedSun: true,
+      extra: [], exclude: []
     },
     westfield: {
       name: 'Westfield Sydney', area: 'Pitt St Mall · Level 1 food court',
-      open: 9, close: 18, days: 'Mon–Sun',
+      open: 9, close: 18, days: 'Mon–Sun', closedSun: false,
       extra: [], exclude: []
     },
     macquarie: {
       name: 'Macquarie', area: 'Macquarie Centre · Macquarie Park',
-      open: 9, close: 18, days: 'Mon–Sun',
-      // student-area special
-      extra: [{ category: 'Combos', keys: ['student_combo'] }], exclude: []
+      open: 9, close: 18, days: 'Mon–Sun', closedSun: false,
+      extra: [], exclude: []
     }
   };
 
@@ -174,7 +184,6 @@
     renderPickupTimes();
     $('#orderBody').hidden = false;
     $('#chosenShop').textContent = SHOPS[key].name;
-    // smooth scroll to menu on mobile
     if (window.innerWidth < 900) $('#orderBody').scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -183,7 +192,6 @@
     var cats = CATEGORIES.map(function (c) {
       return { title: c.title, keys: c.keys.filter(function (k) { return shop.exclude.indexOf(k) === -1; }) };
     });
-    // prepend / append shop extras
     (shop.extra || []).forEach(function (ex) { cats.unshift({ title: ex.category, keys: ex.keys }); });
     return cats.filter(function (c) { return c.keys.length; });
   }
@@ -200,7 +208,9 @@
         if (!it) return;
         var row = el('div', 'omenu-item');
         var hasOpts = it.groups && it.groups.length;
+        var thumb = it.img ? '<div class="omenu-thumb" style="background-image:url(\'' + it.img + '\')"></div>' : '<div class="omenu-thumb omenu-thumb--none"></div>';
         row.innerHTML =
+          thumb +
           '<div class="omenu-item-info">' +
             '<p class="omenu-item-name">' + it.name + (it.veg ? ' <em class="veg">V</em>' : '') + '</p>' +
             '<p class="omenu-item-desc">' + it.desc + '</p>' +
@@ -232,7 +242,6 @@
       var grp = el('div', 'opt-group');
       grp.appendChild(el('p', 'opt-group-label', g.label + (g.required ? ' <span class="req">*</span>' : '')));
       g.options.forEach(function (opt, i) {
-        var id = 'opt_' + gKey + '_' + i;
         var wrap = el('label', 'opt-choice');
         var input = document.createElement('input');
         input.type = g.type === 'multi' ? 'checkbox' : 'radio';
@@ -250,12 +259,10 @@
       body.appendChild(grp);
     });
 
-    // qty
     $('#optQty').textContent = '1';
     state.editing.qty = 1;
     updateOptPrice();
-    var modal = $('#optionModal');
-    modal.hidden = false;
+    $('#optionModal').hidden = false;
     document.body.style.overflow = 'hidden';
   }
 
@@ -264,8 +271,6 @@
     var opts = [];
     inputs.forEach(function (inp) {
       var price = parseFloat(inp.dataset.price) || 0;
-      // hide the boring defaults from the receipt
-      if (inp.value === 'No thanks' || (price === 0 && inp.dataset.group === 'meal')) return;
       opts.push({ label: inp.value, price: price });
     });
     return opts;
@@ -350,14 +355,17 @@
     sel.innerHTML = '';
     var now = new Date();
     var nowDec = now.getHours() + now.getMinutes() / 60;
-    var openNow = nowDec >= shop.open && nowDec < shop.close;
+    var isSun = now.getDay() === 0;
+    var openToday = !(isSun && shop.closedSun);
+    var openNow = openToday && nowDec >= shop.open && nowDec < shop.close;
 
     var asap = el('option');
     asap.value = 'ASAP';
-    asap.textContent = openNow ? 'ASAP — about 15 min' : 'First thing when we open (' + fmtHour(shop.open) + ')';
+    if (openNow) asap.textContent = 'ASAP — about 15 min';
+    else if (!openToday) asap.textContent = 'Next trading day, from ' + fmtHour(shop.open);
+    else asap.textContent = 'When we open (' + fmtHour(shop.open) + ')';
     sel.appendChild(asap);
 
-    // slots every 15 min from next quarter hour (or open) until close
     var start = openNow ? Math.ceil((nowDec + 0.25) * 4) / 4 : shop.open;
     for (var t = start; t < shop.close; t += 0.25) {
       var h = Math.floor(t);
@@ -416,8 +424,6 @@
 
     var orderNo = orderNumber();
     var summary = buildSummary(orderNo, name, phone, email, pickup, notes);
-
-    // Try Formspree if configured; otherwise fall back to email.
     var endpoint = $('#orderForm').dataset.endpoint || '';
     var configured = endpoint && endpoint.indexOf('your-form-id') === -1;
 
@@ -430,7 +436,6 @@
         body: JSON.stringify({ order: orderNo, shop: SHOPS[state.shopKey].name, pickup: pickup, name: name, phone: phone, email: email, details: summary })
       }).catch(function () {});
     } else {
-      // open email as a fallback record
       var href = 'mailto:hello@eatistanbul.com.au?subject=' +
         encodeURIComponent('Pick-up order ' + orderNo + ' — ' + SHOPS[state.shopKey].name) +
         '&body=' + encodeURIComponent(summary);
@@ -455,12 +460,10 @@
     renderShopPicker();
     renderCart();
 
-    // preselect shop from ?shop=
     var params = new URLSearchParams(window.location.search);
     var pre = params.get('shop');
     if (pre && SHOPS[pre]) selectShop(pre);
 
-    // modal controls
     $('#optClose').addEventListener('click', closeModal);
     $('#optionModal').addEventListener('click', function (e) { if (e.target.id === 'optionModal') closeModal(); });
     $('#optQtyInc').addEventListener('click', function () { state.editing.qty++; $('#optQty').textContent = state.editing.qty; updateOptPrice(); });
@@ -471,17 +474,13 @@
       closeModal();
     });
 
-    // mobile cart toggle
     var cartToggle = $('#cartToggle');
-    if (cartToggle) cartToggle.addEventListener('click', function () {
-      document.body.classList.toggle('cart-open');
-    });
+    if (cartToggle) cartToggle.addEventListener('click', function () { document.body.classList.toggle('cart-open'); });
     var cartClose = $('#cartCloseMobile');
     if (cartClose) cartClose.addEventListener('click', function () { document.body.classList.remove('cart-open'); });
 
     $('#orderForm').addEventListener('submit', placeOrder);
 
-    // year
     var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
   }
 

@@ -407,3 +407,62 @@ ul { margin: 0; padding: 0; list-style: none; }
   .story-stats { gap: 24px; }
   .hero-actions .btn { flex: 1; }
 }
+
+/* ===========================================================
+   IMAGE-LED COMPONENTS (real photos)
+   =========================================================== */
+/* hero background photo */
+.hero-photo {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(160deg, rgba(18,15,11,0.84) 0%, rgba(18,15,11,0.6) 42%, rgba(14,11,8,0.92) 100%),
+    url('../img/menu/skewer.jpg');
+  background-size: cover; background-position: center;
+}
+.hero-pattern { z-index: 1; }
+.hero-inner { z-index: 2; }
+.hero-scroll { z-index: 2; }
+
+/* story photo */
+.story-visual--photo { padding: 0; overflow: hidden; }
+.story-visual--photo::before { display: none; }
+.story-visual--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.story-visual-tag {
+  position: absolute; left: 16px; bottom: 16px; z-index: 1;
+  background: rgba(16,14,11,0.82); color: var(--gold-light);
+  padding: 9px 16px; border-radius: 100px; font-size: 0.7rem;
+  letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+}
+
+/* image-led dish cards */
+.dish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.dish-card {
+  background: #fff; border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-soft); border: 1px solid rgba(201,162,75,0.16);
+  transition: transform .3s var(--ease), box-shadow .3s;
+}
+.dish-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.dish-photo { aspect-ratio: 3 / 2; background-size: cover; background-position: center; transition: transform .55s var(--ease); }
+.dish-card:hover .dish-photo { transform: scale(1.06); }
+.dish-body { padding: 20px 24px 24px; }
+.dish-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.dish-head h3 { font-size: 1.4rem; color: var(--charcoal); }
+.dish-price { font-weight: 700; color: var(--gold-deep); white-space: nowrap; font-size: 0.98rem; }
+.dish-body p { color: var(--muted); font-size: 0.92rem; }
+.menu-cta { text-align: center; margin-top: 44px; }
+.menu-cta .menu-foot { margin-top: 16px; }
+
+/* gallery band */
+.gallery { background: var(--charcoal-3); }
+.gallery-strip { display: grid; grid-template-columns: repeat(6, 1fr); }
+.gallery-img { aspect-ratio: 1 / 1; background-size: cover; background-position: center; transition: transform .5s var(--ease); }
+.gallery-img:hover { transform: scale(1.05); position: relative; z-index: 1; }
+
+@media (max-width: 900px) {
+  .dish-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-strip { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 560px) {
+  .dish-grid { grid-template-columns: 1fr; }
+  .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+}
