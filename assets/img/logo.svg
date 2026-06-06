@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Eat Istanbul">
+  <defs>
+    <style>
+      .wm { font-family: 'Marcellus', 'Times New Roman', serif; fill: #c9a24b; letter-spacing: 3px; }
+    </style>
+  </defs>
+  <!-- outer cream ring -->
+  <circle cx="100" cy="100" r="98" fill="#f6f1e7"/>
+  <!-- gold ring -->
+  <circle cx="100" cy="100" r="92" fill="#c9a24b"/>
+  <!-- charcoal disc -->
+  <circle cx="100" cy="100" r="86" fill="#26221d"/>
+  <!-- thin inner gold hairline -->
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#c9a24b" stroke-width="0.8" opacity="0.55"/>
+
+  <!-- cutlery mark: skewer + fork -->
+  <g stroke="#c9a24b" stroke-width="3.2" stroke-linecap="round" fill="none">
+    <!-- skewer line -->
+    <line x1="66" y1="58" x2="104" y2="58"/>
+    <!-- fork stem -->
+    <line x1="104" y1="58" x2="134" y2="58"/>
+    <!-- fork tines -->
+    <line x1="126" y1="50" x2="126" y2="66"/>
+    <line x1="134" y1="50" x2="134" y2="66"/>
+  </g>
+
+  <!-- wordmark -->
+  <text class="wm" x="100" y="108" text-anchor="middle" font-size="30">EAT</text>
+  <text class="wm" x="100" y="140" text-anchor="middle" font-size="27">ISTANBUL</text>
+
+  <!-- bottom dash -->
+  <line x1="84" y1="156" x2="116" y2="156" stroke="#c9a24b" stroke-width="3.2" stroke-linecap="round"/>
+</svg>
