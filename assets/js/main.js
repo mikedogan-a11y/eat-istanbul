@@ -52,25 +52,47 @@
   var form = document.getElementById('cateringForm');
   var note = document.getElementById('formNote');
   if (form) {
+    // Catering enquiries are emailed to the owner via FormSubmit (no backend needed).
+    var ENDPOINT = 'https://formsubmit.co/ajax/ekrem.157@gmail.com';
     form.addEventListener('submit', function (e) {
-      // If Formspree isn't configured yet, fall back to a mailto so no enquiry is lost.
-      var notConfigured = form.action.indexOf('your-form-id') !== -1;
-      if (notConfigured) {
-        e.preventDefault();
-        var data = new FormData(form);
-        var body = encodeURIComponent(
-          'Name: ' + (data.get('name') || '') + '\n' +
-          'Email: ' + (data.get('email') || '') + '\n' +
-          'Phone: ' + (data.get('phone') || '') + '\n' +
-          'People: ' + (data.get('people') || '') + '\n' +
-          'Date: ' + (data.get('date') || '') + '\n\n' +
-          (data.get('message') || '')
-        );
-        window.location.href = 'mailto:hello@eatistanbul.com.au'
-          + '?subject=' + encodeURIComponent('Catering enquiry — website')
-          + '&body=' + body;
-        if (note) { note.textContent = 'Opening your email app to send the enquiry…'; note.className = 'form-note ok'; }
-      }
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var f = form.elements;
+      var shop = f['shop'].value;
+      var payload = {
+        shop: shop,
+        name: f['name'].value,
+        email: f['email'].value,
+        phone: f['phone'].value,
+        people: f['people'].value,
+        date: f['date'].value,
+        message: f['message'].value,
+        _subject: 'Catering enquiry (' + shop + ') — Eat Istanbul website',
+        _template: 'table',
+        _captcha: 'false'
+      };
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      note.textContent = 'Sending your enquiry…';
+      note.className = 'form-note';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && (res.success === 'true' || res.success === true)) {
+            form.reset();
+            note.textContent = 'Thanks! Your catering enquiry for ' + shop + ' has been sent — we\'ll be in touch shortly.';
+            note.className = 'form-note ok';
+          } else { throw new Error('failed'); }
+        })
+        .catch(function () {
+          note.innerHTML = 'Sorry, that didn\'t send. Please call us on <a href="tel:+61424996666">0424 996 666</a> and we\'ll sort your catering.';
+          note.className = 'form-note err';
+        })
+        .then(function () { btn.disabled = false; });
     });
   }
 })();

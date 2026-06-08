@@ -314,12 +314,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .field { margin-bottom: 16px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.3px; }
-.field input, .field textarea {
+.field input, .field textarea, .field select {
   width: 100%; padding: 12px 14px; border: 1.5px solid rgba(42,38,32,0.15); border-radius: 10px;
   font-family: var(--font-body); font-size: 0.95rem; color: var(--ink); background: var(--cream);
   transition: border-color .2s, box-shadow .2s;
 }
-.field input:focus, .field textarea:focus {
+.field input:focus, .field textarea:focus, .field select:focus {
   outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,75,0.18); background: #fff;
 }
 .field textarea { resize: vertical; }

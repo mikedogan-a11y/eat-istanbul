@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/style.css?v=5" />
+  <link rel="stylesheet" href="assets/css/style.css?v=6" />
 </head>
 <body>
 
@@ -296,15 +296,26 @@
           </ul>
         </div>
 
-        <form class="catering-form reveal" id="cateringForm" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+        <form class="catering-form reveal" id="cateringForm" novalidate>
           <h3>Enquire about catering</h3>
           <div class="field">
-            <label for="cf-name">Name</label>
+            <label for="cf-shop">Which shop is this for? *</label>
+            <select id="cf-shop" name="shop" required>
+              <option value="" disabled selected>Choose a location…</option>
+              <option>25 Martin Place</option>
+              <option>Barangaroo</option>
+              <option>Central Plaza</option>
+              <option>Macquarie University</option>
+              <option>Multiple / not sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-name">Name *</label>
             <input id="cf-name" name="name" type="text" required autocomplete="name" />
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="cf-email">Email</label>
+              <label for="cf-email">Email *</label>
               <input id="cf-email" name="email" type="email" required autocomplete="email" />
             </div>
             <div class="field">
@@ -384,8 +395,8 @@
       <div class="footer-col">
         <h4>Get in touch</h4>
         <a href="tel:+61424996666">0424 996 666</a>
-        <a href="mailto:hello@eatistanbul.com.au">hello@eatistanbul.com.au</a>
-        <p class="footer-hours">Mon-Fri, lunch &amp; beyond</p>
+        <a href="#catering">Catering enquiries</a>
+        <p class="footer-hours">Open 7 days across Sydney</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -396,6 +407,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/main.js?v=6"></script>
 </body>
 </html>
