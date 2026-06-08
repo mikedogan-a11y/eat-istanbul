@@ -60,17 +60,18 @@
       var f = form.elements;
       var shop = f['shop'].value;
       var payload = {
-        shop: shop,
-        name: f['name'].value,
-        email: f['email'].value,
-        phone: f['phone'].value,
-        people: f['people'].value,
-        date: f['date'].value,
-        message: f['message'].value,
-        _subject: 'Catering enquiry (' + shop + ') — Eat Istanbul website',
+        'Shop / location': shop,
+        'Name': f['name'].value,
+        'Email': f['email'].value,
+        _replyto: f['email'].value,
+        _subject: 'New catering enquiry: ' + shop + ' | Eat Istanbul',
         _template: 'table',
         _captcha: 'false'
       };
+      if (f['phone'].value) payload['Phone'] = f['phone'].value;
+      if (f['people'].value) payload['Number of guests'] = f['people'].value;
+      if (f['date'].value) payload['Date needed'] = f['date'].value;
+      if (f['message'].value) payload['Details'] = f['message'].value;
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       note.textContent = 'Sending your enquiry…';
