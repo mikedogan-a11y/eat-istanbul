@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/style.css?v=6" />
+  <link rel="stylesheet" href="assets/css/style.css?v=7" />
 </head>
 <body>
 
@@ -46,7 +46,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>0424 996 666</span>
         </a>
-        <a href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener" class="btn btn-gold">Order Pick-up</a>
+        <a href="#order" class="btn btn-gold">Order Pick-up</a>
       </div>
 
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -60,7 +60,7 @@
       <a href="#menu">Menu</a>
       <a href="#locations">Locations</a>
       <a href="#catering">Catering</a>
-      <a href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener" class="btn btn-gold btn-block">Order Pick-up</a>
+      <a href="#order" class="btn btn-gold btn-block">Order Pick-up</a>
       <a href="tel:+61424996666" class="phone-link phone-link--mobile">Call 0424 996 666</a>
     </div>
   </header>
@@ -193,7 +193,7 @@
 
         </div>
         <div class="menu-cta reveal">
-          <a href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener" class="btn btn-gold btn-lg">View full menu &amp; order</a>
+          <a href="#order" class="btn btn-gold btn-lg">View full menu &amp; order</a>
           <p class="menu-foot"><em class="veg">V</em> = vegetarian · 100% halal · boxes available Regular or Large · Gözleme available at all shops except Macquarie University.</p>
         </div>
       </div>
@@ -230,9 +230,10 @@
               Sydney NSW 2000
             </address>
             <p class="loc-hours"><strong>Mon-Fri</strong> 9am-4:30pm</p>
+            <p class="loc-mode">Dine in &amp; takeaway at the counter</p>
             <div class="loc-actions">
               <a class="btn btn-sm btn-ghost-dark" href="https://www.google.com/maps/search/?api=1&query=Eat+Istanbul+25+Martin+Place+Sydney" target="_blank" rel="noopener">Directions</a>
-              <a class="btn btn-sm btn-gold" href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener">Order</a>
+              <a class="btn btn-sm btn-gold" href="tel:+61424996666">Call</a>
             </div>
           </article>
 
@@ -244,9 +245,10 @@
               200 Barangaroo Ave, Sydney NSW 2000
             </address>
             <p class="loc-hours"><strong>Mon-Sat</strong> 9am-5pm · Sun closed</p>
+            <p class="loc-mode loc-mode--order">Order online · dine in · takeaway</p>
             <div class="loc-actions">
               <a class="btn btn-sm btn-ghost-dark" href="https://www.google.com/maps/search/?api=1&query=Eat+Istanbul+The+Canteen+Barangaroo+Avenue+Sydney" target="_blank" rel="noopener">Directions</a>
-              <a class="btn btn-sm btn-gold" href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener">Order</a>
+              <a class="btn btn-sm btn-gold" href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener">Order online</a>
             </div>
           </article>
 
@@ -258,9 +260,10 @@
               Sydney NSW
             </address>
             <p class="loc-hours"><strong>Mon-Sun</strong> Centre hours</p>
+            <p class="loc-mode">Dine in &amp; takeaway at the counter</p>
             <div class="loc-actions">
               <a class="btn btn-sm btn-ghost-dark" href="https://www.google.com/maps/search/?api=1&query=Eat+Istanbul+Central+Plaza+Sydney" target="_blank" rel="noopener">Directions</a>
-              <a class="btn btn-sm btn-gold" href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener">Order</a>
+              <a class="btn btn-sm btn-gold" href="tel:+61424996666">Call</a>
             </div>
           </article>
 
@@ -272,9 +275,10 @@
               Macquarie Park NSW 2109
             </address>
             <p class="loc-hours"><strong>Mon-Fri</strong> Campus hours</p>
+            <p class="loc-mode">Dine in &amp; takeaway at the counter</p>
             <div class="loc-actions">
               <a class="btn btn-sm btn-ghost-dark" href="https://www.google.com/maps/search/?api=1&query=Eat+Istanbul+Macquarie+University" target="_blank" rel="noopener">Directions</a>
-              <a class="btn btn-sm btn-gold" href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener">Order</a>
+              <a class="btn btn-sm btn-gold" href="tel:+61424996666">Call</a>
             </div>
           </article>
 
@@ -347,17 +351,12 @@
     <section class="order" id="order">
       <div class="container order-inner">
         <p class="eyebrow eyebrow--light reveal">Order Online</p>
-        <h2 class="reveal">Skip the queue. Order ahead.</h2>
-        <p class="section-lead section-lead--light reveal">Build your order, pick a shop and a pick-up time, and pay when you collect.</p>
+        <h2 class="reveal">Order ahead for pick-up</h2>
+        <p class="section-lead section-lead--light reveal">Online ordering is available at our <strong>Barangaroo</strong> shop. Build your order, pick a time, and pay when you collect.</p>
         <div class="hero-actions reveal" style="justify-content:center;margin-top:30px;">
-          <a href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Order for pick-up</a>
+          <a href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener" class="btn btn-gold btn-lg">Order Barangaroo pick-up</a>
         </div>
-        <p class="order-divider reveal">or get it delivered</p>
-        <div class="order-apps reveal">
-          <a class="order-app" href="#" target="_blank" rel="noopener">Uber&nbsp;Eats</a>
-          <a class="order-app" href="#" target="_blank" rel="noopener">DoorDash</a>
-          <a class="order-app" href="#" target="_blank" rel="noopener">Menulog</a>
-        </div>
+        <p class="order-note reveal">Visiting another shop? 25 Martin Place, Central Plaza &amp; Macquarie University are dine in &amp; takeaway at the counter. <a href="#locations">See all locations</a>.</p>
         <p class="order-note reveal">Prefer to call ahead? Ring us on <a href="tel:+61424996666">0424 996 666</a>.</p>
       </div>
     </section>
@@ -381,7 +380,7 @@
         <a href="#menu">Menu</a>
         <a href="#locations">Locations</a>
         <a href="#catering">Catering</a>
-        <a href="https://www.eatistanbulsydney.com/" target="_blank" rel="noopener">Order Pick-up</a>
+        <a href="#order">Order Pick-up</a>
       </div>
 
       <div class="footer-col">

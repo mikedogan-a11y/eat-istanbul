@@ -286,8 +286,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .loc-card address {
   font-style: normal; color: rgba(246,241,231,0.75); font-size: 0.95rem; line-height: 1.55; flex: 1;
 }
-.loc-hours { margin: 16px 0 22px; font-size: 0.92rem; color: rgba(246,241,231,0.9); }
+.loc-hours { margin: 16px 0 6px; font-size: 0.92rem; color: rgba(246,241,231,0.9); }
 .loc-hours strong { color: var(--gold-light); }
+.loc-mode { margin: 0 0 18px; font-size: 0.82rem; color: rgba(246,241,231,0.6); }
+.loc-mode--order { color: var(--gold-light); font-weight: 600; }
 .loc-actions { display: flex; gap: 10px; }
 .loc-actions .btn { flex: 1; }
 
