@@ -1,57 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Order Online | Eat Istanbul</title>
-  <!-- Ordering is handled by Eat Istanbul's Square store. Forward there. -->
-  <meta http-equiv="refresh" content="0; url=https://www.eatistanbulsydney.com/" />
-  <link rel="canonical" href="https://www.eatistanbulsydney.com/" />
-  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root { --charcoal:#26221d; --charcoal-3:#100e0b; --gold:#c9a24b; --gold-light:#e3c77d; --cream:#f6f1e7; }
-    * { box-sizing:border-box; }
-    body {
-      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-      font-family:'Inter',system-ui,sans-serif; text-align:center; padding:24px;
-      color:var(--cream);
-      background:radial-gradient(90% 120% at 50% 0%, rgba(201,162,75,0.18), transparent 55%),
-                 linear-gradient(160deg,#26221d 0%,#100e0b 100%);
-    }
-    .box { max-width:440px; }
-    img { width:96px; height:96px; margin:0 auto 24px; display:block; }
-    h1 { font-family:'Marcellus',serif; font-weight:400; font-size:1.9rem; margin:0 0 12px; }
-    p { color:rgba(246,241,231,0.78); margin:0 0 26px; line-height:1.6; }
-    .spinner {
-      width:34px; height:34px; margin:0 auto 24px; border-radius:50%;
-      border:3px solid rgba(246,241,231,0.2); border-top-color:var(--gold);
-      animation:spin .8s linear infinite;
-    }
-    @keyframes spin { to { transform:rotate(360deg); } }
-    a.btn {
-      display:inline-flex; align-items:center; justify-content:center;
-      background:var(--gold); color:#1a1713; font-weight:600; text-decoration:none;
-      padding:15px 32px; border-radius:100px; transition:background .25s, transform .25s;
-    }
-    a.btn:hover { background:var(--gold-light); transform:translateY(-2px); }
-    .back { display:block; margin-top:18px; color:var(--gold-light); font-size:.9rem; text-decoration:none; }
-  </style>
+  <title>Menu | Eat Istanbul</title>
+  <meta name="robots" content="noindex" />
+  <meta http-equiv="refresh" content="0; url=menu/" />
+  <link rel="canonical" href="https://eatistanbul.au/menu/" />
 </head>
 <body>
-  <div class="box">
-    <img src="assets/img/logo.svg" alt="Eat Istanbul" />
-    <div class="spinner" aria-hidden="true"></div>
-    <h1>Taking you to our ordering page…</h1>
-    <p>You're being redirected to the Eat Istanbul online store to place your pick-up order and pay securely. Not moving?</p>
-    <a class="btn" href="https://www.eatistanbulsydney.com/">Order online now</a>
-    <a class="back" href="index.html">← Back to the website</a>
-  </div>
-  <script>
-    // Belt-and-suspenders: redirect via JS too.
-    setTimeout(function () { window.location.replace('https://www.eatistanbulsydney.com/'); }, 200);
-  </script>
+  <p>Taking you to our menu. <a href="menu/">Continue to the menu</a></p>
 </body>
 </html>
