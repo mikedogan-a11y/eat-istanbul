@@ -1,84 +1,35 @@
-# Eat Istanbul — Website
+# Eat Istanbul website
 
-Authentic Turkish street food, Sydney. A fast, mobile-first one-page website
-for Eat Istanbul (owner: Ekrem Yildiz). No build step, no dependencies — just
-open the files and edit.
+Static site for Eat Istanbul (owner Ekrem Yildiz). Plain HTML and CSS with no build step, served by GitHub Pages from the `main` branch.
 
-## Files
+Official address: **https://eatistanbul.au** (registration pending as at 14 Sep 2026). Anything a customer sees must use the official domain, never the github.io address.
 
-```
-eat-istanbul/
-├─ index.html              ← main page content (edit text here)
-├─ order.html              ← online ordering page (pick-up)
-├─ assets/
-│  ├─ css/style.css        ← colours, fonts, layout
-│  ├─ css/order.css        ← ordering-page styles
-│  ├─ js/main.js           ← menu, scroll effects, catering form
-│  ├─ js/order.js          ← MENU + PRICES + cart logic  ⭐ edit prices here
-│  └─ img/logo.svg         ← the Eat Istanbul logo (recreated, crisp at any size)
-├─ static-server.ps1       ← local preview server (Windows)
-└─ README.md
-```
+## Pages
 
-## Online ordering (order.html)
+| Path | What it is |
+|---|---|
+| `index.html` | Home: story, menu highlights, the four shops, catering form |
+| `menu/index.html` | Full menu with prices. The in-store menu QR code points to `https://eatistanbul.au/menu/`, so **never move or rename this page**. |
+| `barangaroo/`, `central-plaza/`, `martin-place/`, `macquarie/` | One page per shop |
+| `order.html` | Redirects to Barangaroo's Square Online ordering site |
+| `assets/` | Shared styles, script, logo and food photos |
 
-A full pick-up ordering flow: choose a shop → build an order with item options
-(meat, sauces, make-it-a-meal, snack-pack size) → pick a pick-up time → enter
-name/phone → place order. **Payment is "pay on pick-up"** (no card processing),
-which is the simplest and safest setup for a food-court business.
+## Prices
 
-- **All menu items and prices live in `assets/js/order.js`** (the `ITEMS` object).
-  Change a price by editing one number. Add an item by copying a line.
-- **Per-shop menus** are in the `SHOPS` object — e.g. Barangaroo has a Breakfast
-  section, Macquarie has a Student Combo. Add/remove with `extra` / `exclude`.
-- **Where orders go:** set a free https://formspree.io endpoint on the
-  `data-endpoint` attribute of `<form id="orderForm">` in `order.html`
-  (replace `your-form-id`). Until then, placing an order shows a confirmation
-  with an order number and offers an "Email my order" button as a fallback so
-  nothing is lost. Each order gets a number like `EI-BAR-3588`.
-- Shop hours drive the pick-up time slots (also in `SHOPS`).
+Prices live only in `menu/index.html`. They are the same at all four shops (confirmed by Michael, 14 Sep 2026). To change a price, edit the number in that page and publish. The QR code never needs reprinting.
 
-> ⚠️ **Prices are assumptions** (typical Sydney food-court 2026). Confirm the real
-> prices with Ekrem and update `ITEMS` in `order.js` before going live.
+## Shop details
 
-## Preview it locally
+Addresses and hours match each shop's Google Business Profile (checked 14 Sep 2026). Each Directions button opens that shop's exact Google listing. If hours change, update Google and the matching shop page together.
 
-Double-click nothing — instead, run the server and open the page:
+## Publishing
 
-```powershell
-powershell -ExecutionPolicy Bypass -File static-server.ps1
-# then visit http://localhost:8830 in your browser
-```
-
-(Or simply open `index.html` directly in a browser — the only thing that needs
-the server is clean local link behaviour.)
-
-## Things to finish before going live
-
-1. **Photos** — the design is typography-led so it looks great without photos,
-   but real shots of the food and shopfronts will lift it. Add images to
-   `assets/img/` and drop `<img>` tags into the hero / story / menu sections.
-2. **Confirm prices** — update the `ITEMS` object in `assets/js/order.js` with
-   Ekrem's real menu prices (currently assumptions).
-3. **Forms → Formspree** — create free forms at https://formspree.io and paste
-   the IDs into (a) the catering form `action` in `index.html` and (b) the
-   `data-endpoint` on `order.html`'s order form. Both replace `your-form-id`.
-4. **Delivery app links** — the Uber Eats / DoorDash / Menulog buttons on
-   `index.html` point to `#`. Paste the real store URLs (search "order-app").
-4. **Email address** — `hello@eatistanbul.com.au` is a placeholder; swap for the
-   real one in `index.html` (footer + form fallback in `assets/js/main.js`).
-5. **Instagram link** — footer Instagram link is `#`; add the real handle.
-6. **Hours** — Westfield & Macquarie show "Centre hours"; add exact times if known.
-
-## Hosting (free options)
-
-This is a plain static site, so it can be hosted free on any of:
-
-- **Netlify** — drag the `eat-istanbul` folder onto app.netlify.com/drop
-- **Cloudflare Pages** or **GitHub Pages**
-- Point a domain (e.g. `eatistanbul.com.au`) at it once chosen.
+- Commit as `mikedogan-a11y <279657995+mikedogan-a11y@users.noreply.github.com>`.
+- Push normally to `main`. **Never force-push**; it deletes other people's work from the live site.
+- GitHub Pages rebuilds in about a minute.
+- `_config.yml` keeps this README and `netlify.toml` off the public site.
 
 ## Brand
 
-- Charcoal `#26221d`, Gold `#c9a24b`, Cream `#f6f1e7`, Turkish-red accent `#b3402f`
-- Headings: **Marcellus** · Body: **Inter** (loaded from Google Fonts)
+Site: charcoal `#26221d`, gold `#c9a24b`, cream `#f6f1e7`, red accent `#b3402f`; headings Marcellus, body Inter.
+Menu page: follows the in-store boards instead, black with yellow `#f6b800`, Barlow.

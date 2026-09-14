@@ -2,73 +2,87 @@
 <html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Menu | Eat Istanbul</title>
-  <meta name="description" content="The Eat Istanbul menu: kebabs, skewers, falafel, snack packs, hand-rolled g&ouml;zleme and baklava, at Eat Istanbul shops across Sydney." />
-  <link rel="canonical" href="https://mikedogan-a11y.github.io/eat-istanbul/menu/" />
+  <meta name="description" content="The Eat Istanbul menu with prices: kebabs, skewers, falafel, halal snack packs, g&ouml;zleme, hot chips and baklava. The same prices at all four Sydney shops." />
+  <link rel="canonical" href="https://eatistanbul.au/menu/" />
+  <meta name="theme-color" content="#0d0d0d" />
   <meta property="og:title" content="Menu | Eat Istanbul" />
-  <meta property="og:description" content="Turkish street food, made fresh. See the full menu." />
+  <meta property="og:description" content="Turkish street food, made fresh. See the full menu and prices." />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="../assets/img/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=7" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    body { background: var(--cream); }
-    .mbar { background: var(--charcoal-2); }
-    .mbar .in { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 760px; margin: 0 auto; padding: 10px 18px; }
-    .mbrand { display: flex; align-items: center; gap: 10px; color: var(--cream); text-decoration: none; }
-    .mbrand img { width: 40px; height: 40px; }
-    .mbrand b { font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; letter-spacing: .3px; }
-    .mcall { color: var(--gold-light); text-decoration: none; font-weight: 600; font-size: .9rem; }
-    .mhero { background: var(--charcoal); color: var(--cream); text-align: center; padding: 30px 20px 28px; }
-    .mhero .eyebrow { color: var(--gold-light); margin-bottom: 8px; }
-    .mhero h1 { font-size: clamp(2.3rem, 9vw, 3.3rem); color: var(--white); }
-    .mhero p { color: #d9d0bf; max-width: 520px; margin: 10px auto 0; font-size: .98rem; }
-    .chips { position: sticky; top: 0; z-index: 40; background: var(--cream); border-bottom: 1px solid rgba(201,162,75,.28); overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-    .chips::-webkit-scrollbar { display: none; }
-    .chips .in { display: inline-flex; gap: 8px; padding: 10px 14px; }
-    .chips a { display: inline-block; padding: 7px 14px; border-radius: 100px; background: #fff; border: 1px solid rgba(201,162,75,.38); color: var(--ink); text-decoration: none; font-size: .86rem; font-weight: 600; }
-    .mwrap { max-width: 760px; margin: 0 auto; padding: 20px 14px 6px; }
-    .cat { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); border: 1px solid rgba(201,162,75,.16); margin: 0 0 20px; scroll-margin-top: 64px; }
-    .cat img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--cream-2); }
-    .cat .body { padding: 18px 18px 10px; }
-    .cat h2 { font-size: 1.9rem; color: var(--charcoal); }
-    .cat .sub { color: var(--muted); margin: 2px 0 6px; font-size: .95rem; }
-    .item { padding: 12px 0; border-top: 1px solid var(--cream-2); }
-    .item:first-of-type { border-top: 0; }
-    .item h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.02rem; color: var(--gold-deep); margin: 0; }
-    .item p { margin: 2px 0 0; font-size: .95rem; }
-    .size { display: inline-block; margin-top: 6px; font-size: .72rem; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); background: var(--cream); border-radius: 6px; padding: 2px 8px; }
-    .note { font-size: .86rem; color: var(--muted); margin: 6px 0 8px; }
-    .cols { display: grid; grid-template-columns: 1fr; gap: 0 22px; }
-    @media (min-width: 640px) { .cols { grid-template-columns: 1fr 1fr; } }
-    .list { list-style: none; margin: 4px 0 12px; padding: 0; }
-    .list li { padding: 7px 0; border-top: 1px solid var(--cream-2); font-size: .97rem; }
-    .list li:first-child { border-top: 0; }
-    .cat h2.small { font-size: 1.45rem; margin-top: 6px; }
-    .mfoot { max-width: 760px; margin: 0 auto; padding: 4px 16px 44px; text-align: center; color: var(--muted); font-size: .9rem; }
-    .mfoot .pricebox { background: var(--charcoal); color: var(--cream); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 16px; font-size: .95rem; }
-    .mfoot a { color: var(--gold-deep); font-weight: 600; }
+    :root { --bg: #0d0d0d; --line: #2b2b2b; --edge: #3a3a3a; --yellow: #f6b800; --soft: #e4e4e4; --muted: #a9a9a9; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: #fff; font-family: 'Barlow', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 17px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .wrap { max-width: 760px; margin: 0 auto; padding-left: 18px; padding-right: 18px; }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 6px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand img { width: 42px; height: 42px; display: block; }
+    .brand b { font-size: 1.2rem; font-weight: 700; letter-spacing: .3px; }
+    .call { color: var(--yellow); font-weight: 600; text-decoration: none; }
+    .hero { padding-top: 14px; padding-bottom: 18px; }
+    .hero h1 { margin: 0; font-size: clamp(2.8rem, 12vw, 3.8rem); font-weight: 800; line-height: .95; letter-spacing: -.5px; }
+    .hero p { margin: 10px 0 0; color: var(--soft); font-size: 1.05rem; }
+    .chips { position: sticky; top: 0; z-index: 20; background: rgba(13, 13, 13, .96); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .chips .in { display: flex; gap: 8px; overflow-x: auto; max-width: 760px; margin: 0 auto; padding: 10px 14px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .chips .in::-webkit-scrollbar { display: none; }
+    .chips a { flex: 0 0 auto; padding: 8px 15px; border: 1px solid var(--edge); border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap; }
+    .chips a:hover, .chips a:focus-visible { border-color: var(--yellow); color: var(--yellow); outline: none; }
+    main { padding-top: 22px; padding-bottom: 6px; }
+    .cat { margin: 0 0 34px; scroll-margin-top: 64px; }
+    .cat img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 16px; background: #1b1b1b; }
+    .hrow { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 14px; margin-top: 16px; }
+    .cat h2, .box h2 { margin: 0; font-size: 2.35rem; font-weight: 800; line-height: 1.02; letter-spacing: -.3px; }
+    .sub { margin: 3px 0 0; color: var(--soft); font-weight: 500; font-size: 1.08rem; }
+    .item { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 4px 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .item:last-child { border-bottom: 0; }
+    .item > div:first-child { flex: 1 1 200px; }
+    .item h3 { margin: 0; color: var(--yellow); font-size: 1.38rem; font-weight: 700; line-height: 1.15; }
+    .item p { margin: 3px 0 0; color: var(--soft); }
+    .price { margin-left: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 14px; font-weight: 700; font-size: 1.2rem; white-space: nowrap; padding-top: 1px; }
+    .price em { font-style: normal; display: inline-flex; align-items: center; gap: 6px; }
+    .sz { display: inline-grid; place-items: center; width: 1.3em; height: 1.3em; border-radius: 50%; background: var(--yellow); color: #111; font-size: .75em; font-weight: 800; font-style: normal; line-height: 1; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .v { display: inline-block; margin-left: 8px; padding: 2px 7px; border-radius: 5px; background: #3c6b3c; color: #fff; font-size: .7rem; font-weight: 700; font-style: normal; letter-spacing: .5px; vertical-align: middle; }
+    .opts { list-style: none; margin: 8px 0 0; padding: 0; }
+    .opts li { display: flex; align-items: center; padding: 8px 0; font-size: 1.12rem; font-weight: 500; }
+    .num { display: inline-grid; place-items: center; flex: 0 0 auto; width: 1.55em; height: 1.55em; margin-right: 10px; border-radius: 50%; background: var(--yellow); color: #111; font-size: .85em; font-weight: 800; font-style: normal; }
+    .note { margin: 8px 0 0; color: var(--muted); font-size: .92rem; }
+    .box { border: 1px solid var(--edge); border-radius: 20px; padding: 18px 20px 10px; margin: 0 0 18px; scroll-margin-top: 64px; }
+    .box h2 { color: var(--yellow); }
+    .list { list-style: none; margin: 10px 0 8px; padding: 0; }
+    .list li { padding: 5px 0; font-size: 1.1rem; }
+    @media (min-width: 560px) { .list.two { columns: 2; column-gap: 32px; } .list.two li { break-inside: avoid; } }
+    .plist { list-style: none; margin: 10px 0 8px; padding: 0; }
+    .plist li { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; font-size: 1.1rem; border-bottom: 1px dashed var(--line); }
+    .plist li:last-child { border-bottom: 0; }
+    .plist span { font-weight: 700; }
+    .legend { color: var(--muted); font-size: .95rem; padding-top: 4px; }
+    .legend .sz { font-size: .8em; margin-right: 4px; }
+    footer { color: var(--muted); font-size: .95rem; padding-top: 6px; padding-bottom: 44px; }
+    footer a { color: var(--yellow); font-weight: 600; text-decoration: none; }
+    .shops { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 10px 0 14px; }
   </style>
 </head>
 <body>
 
-  <header class="mbar">
-    <div class="in">
-      <a class="mbrand" href="../" aria-label="Eat Istanbul home">
-        <img src="../assets/img/logo.svg" alt="" />
-        <b>Eat Istanbul</b>
-      </a>
-      <a class="mcall" href="tel:+61424996666">0424 996 666</a>
-    </div>
+  <header class="wrap bar">
+    <a class="brand" href="../" aria-label="Eat Istanbul home">
+      <img src="../assets/img/logo.svg" alt="" width="42" height="42" />
+      <b>Eat Istanbul</b>
+    </a>
+    <a class="call" href="tel:+61424996666">0424 996 666</a>
   </header>
 
-  <section class="mhero">
-    <p class="eyebrow">The Menu</p>
-    <h1>Made fresh, the Istanbul way</h1>
-    <p>Prices vary by location, so please see the menu board in store.</p>
+  <section class="wrap hero">
+    <h1>Our Menu</h1>
+    <p>Turkish street food, made fresh. The same prices at all four Eat Istanbul shops.</p>
   </section>
 
   <nav class="chips" aria-label="Menu sections">
@@ -80,112 +94,147 @@
       <a href="#gozleme">G&ouml;zleme</a>
       <a href="#hot-chips">Hot Chips</a>
       <a href="#baklava">Baklava</a>
-      <a href="#sides-sauces">Sides &amp; Sauces</a>
+      <a href="#sides">Sides</a>
+      <a href="#sauces">Sauces</a>
       <a href="#extras">Extras</a>
     </div>
   </nav>
 
-  <main class="mwrap">
+  <main class="wrap">
 
     <section class="cat" id="kebab">
-      <img src="../assets/img/menu/kebab-box.jpg" alt="Kebab in a box with sides" loading="lazy" decoding="async" />
-      <div class="body">
-        <h2>Kebab</h2>
-        <p class="sub">Gourmet Beef, Chicken or Mixed</p>
-        <div class="item"><h3>In a wrap</h3><p>With leafy green salad, tomato, spanish onion and 2 sauces</p></div>
-        <div class="item"><h3>In a box</h3><p>With 2 sides and 2 sauces</p><span class="size">Regular or Large</span></div>
+      <img src="img/kebab-box.jpg" alt="Kebab in a box with salads and sauces" width="800" height="533" decoding="async" />
+      <div class="hrow"><h2>Kebab</h2></div>
+      <p class="sub">Gourmet Beef, Chicken or Mixed</p>
+      <div class="item">
+        <div><h3>In a wrap</h3><p>with leafy green salad, tomato, spanish onion &amp; 2 sauces</p></div>
+        <div class="price">$17.95</div>
+      </div>
+      <div class="item">
+        <div><h3>In a box</h3><p>with 2 sides and 2 sauces</p></div>
+        <div class="price"><em><i class="sz" aria-hidden="true">R</i><span class="sr">Regular </span>$19.95</em><em><i class="sz" aria-hidden="true">L</i><span class="sr">Large </span>$21.95</em></div>
       </div>
     </section>
 
     <section class="cat" id="skewers">
-      <img src="../assets/img/menu/skewer.jpg" alt="Grilled chicken and lamb skewers" loading="lazy" decoding="async" />
-      <div class="body">
-        <h2>Skewers</h2>
-        <p class="sub">Grilled Chicken or Lamb</p>
-        <div class="item"><h3>In a wrap</h3><p>1 skewer, with leafy green salad, tomato, spanish onion and 2 sauces</p></div>
-        <div class="item"><h3>In a box</h3><p>1 skewer, with 2 sides and 2 sauces</p><span class="size">Regular or Large</span></div>
-        <div class="item"><h3>Single skewer</h3><p>1 skewer of your choice</p></div>
+      <img src="img/skewer.jpg" alt="Chicken and lamb skewers on the grill" width="800" height="533" loading="lazy" decoding="async" />
+      <div class="hrow"><h2>Skewers</h2></div>
+      <p class="sub">Grilled Chicken or Lamb</p>
+      <div class="item">
+        <div><h3>In a wrap</h3><p>1 skewer, with leafy green salad, tomato, spanish onion and 2 sauces</p></div>
+        <div class="price">$19.95</div>
+      </div>
+      <div class="item">
+        <div><h3>In a box</h3><p>1 skewer, with 2 sides and 2 sauces</p></div>
+        <div class="price"><em><i class="sz" aria-hidden="true">R</i><span class="sr">Regular </span>$21.95</em><em><i class="sz" aria-hidden="true">L</i><span class="sr">Large </span>$23.95</em></div>
+      </div>
+      <div class="item">
+        <div><h3>Single Skewer</h3><p>1 skewer of your choice</p></div>
+        <div class="price">$14.95</div>
       </div>
     </section>
 
     <section class="cat" id="falafel">
-      <img src="../assets/img/menu/falafel.jpg" alt="Falafel with tabouli and salad" loading="lazy" decoding="async" />
-      <div class="body">
-        <h2>Falafel <em class="veg">V</em></h2>
-        <div class="item"><h3>In a wrap</h3><p>With tabouli, leafy green salad, tomato, spanish onion and 2 sauces</p></div>
-        <div class="item"><h3>In a box</h3><p>With 3 sides and 2 sauces</p><span class="size">Regular or Large</span></div>
+      <img src="img/falafel.jpg" alt="Falafel with tabouli, cabbage and salad" width="800" height="533" loading="lazy" decoding="async" />
+      <div class="hrow"><h2>Falafel <em class="v">V</em></h2></div>
+      <div class="item">
+        <div><h3>In a wrap</h3><p>with tabouli, leafy green salad, tomato, spanish onion and 2 sauces</p></div>
+        <div class="price">$17.95</div>
+      </div>
+      <div class="item">
+        <div><h3>In a box</h3><p>with 3 sides and 2 sauces</p></div>
+        <div class="price"><em><i class="sz" aria-hidden="true">R</i><span class="sr">Regular </span>$19.95</em><em><i class="sz" aria-hidden="true">L</i><span class="sr">Large </span>$21.95</em></div>
       </div>
     </section>
 
     <section class="cat" id="snack-packs">
-      <img src="../assets/img/menu/snack-pack.jpg" alt="Halal snack pack with chips and sauces" loading="lazy" decoding="async" />
-      <div class="body">
-        <h2>Snack Packs</h2>
-        <div class="item"><h3>Halal Snack Pack</h3><p>Beef, Chicken or Mixed with chips and 2 sauces</p><span class="size">Regular or Large</span></div>
+      <img src="img/snack-pack.jpg" alt="Halal snack pack with chips and sauces" width="800" height="533" loading="lazy" decoding="async" />
+      <div class="hrow"><h2>Snack Packs</h2></div>
+      <div class="item">
+        <div><h3>Halal Snack Pack</h3><p>Beef, Chicken or Mixed with chips and 2 sauces</p></div>
+        <div class="price"><em><i class="sz" aria-hidden="true">R</i><span class="sr">Regular </span>$19.95</em><em><i class="sz" aria-hidden="true">L</i><span class="sr">Large </span>$21.95</em></div>
       </div>
     </section>
 
     <section class="cat" id="gozleme">
-      <img src="../assets/img/menu/gozleme.jpg" alt="Hand-rolled gozleme with lemon" loading="lazy" decoding="async" />
-      <div class="body">
-        <h2>G&ouml;zleme</h2>
-        <p class="sub">Hand-rolled fresh daily</p>
-        <div class="item"><h3>Ground Beef, Mushroom, Cheese*</h3></div>
-        <div class="item"><h3>Chicken, Mushroom, Cheese*</h3></div>
-        <div class="item"><h3>Spinach, Cheese* <em class="veg">V</em></h3></div>
-        <p class="note">*Mozzarella and feta. G&ouml;zleme is available at all shops except Macquarie University.</p>
-      </div>
+      <img src="img/gozleme.jpg" alt="Gozleme with lemon wedges" width="556" height="440" loading="lazy" decoding="async" />
+      <div class="hrow"><h2>G&ouml;zleme</h2><div class="price">$17.95</div></div>
+      <ol class="opts">
+        <li><i class="num" aria-hidden="true">1</i>Ground Beef, Mushroom, Cheese*</li>
+        <li><i class="num" aria-hidden="true">2</i>Chicken, Mushroom, Cheese*</li>
+        <li><i class="num" aria-hidden="true">3</i>Spinach, Cheese* <em class="v">V</em></li>
+      </ol>
+      <p class="note">*Mozzarella &amp; Feta. G&ouml;zleme is available at all shops except Macquarie University.</p>
     </section>
 
     <section class="cat" id="hot-chips">
-      <img src="../assets/img/menu/hot-chips.jpg" alt="Hot chips" loading="lazy" decoding="async" />
-      <div class="body">
+      <img src="img/hot-chips.jpg" alt="Hot chips" width="800" height="800" loading="lazy" decoding="async" />
+      <div class="hrow">
         <h2>Hot Chips</h2>
-        <div class="item"><h3>Hot chips</h3><span class="size">Small, Regular or Large</span></div>
+        <div class="price"><em><i class="sz" aria-hidden="true">S</i><span class="sr">Small </span>$6.95</em><em><i class="sz" aria-hidden="true">R</i><span class="sr">Regular </span>$9.95</em><em><i class="sz" aria-hidden="true">L</i><span class="sr">Large </span>$11.95</em></div>
       </div>
     </section>
 
     <section class="cat" id="baklava">
-      <img src="../assets/img/menu/baklava.jpg" alt="Pistachio baklava" loading="lazy" decoding="async" />
-      <div class="body">
-        <h2>Baklava</h2>
-        <p class="sub">Layered filo with pistachio and honey</p>
-      </div>
+      <img src="img/baklava.jpg" alt="Pistachio baklava" width="800" height="1201" loading="lazy" decoding="async" />
+      <div class="hrow"><h2>Baklava</h2><div class="price">$3.95</div></div>
+      <p class="sub">Layered filo with pistachio &amp; honey</p>
     </section>
 
-    <section class="cat" id="sides-sauces">
-      <div class="body cols">
-        <div>
-          <h2 class="small">Sides</h2>
-          <ul class="list">
-            <li>Tabouli Salad</li><li>Garden Salad</li><li>Cabbage Salad</li><li>Istanbul-style Rice</li><li>Hot Chips</li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="small">Sauces</h2>
-          <ul class="list">
-            <li>Hummus</li><li>Yoghurt, Mint &amp; Garlic</li><li>Istanbul Hot Sauce</li><li>Classic Chilli</li><li>Sweet Chilli</li><li>Mayonnaise</li><li>Tomato</li><li>BBQ</li>
-          </ul>
-        </div>
-      </div>
+    <section class="box" id="sides">
+      <h2>Sides</h2>
+      <ul class="list">
+        <li>Tabouli Salad</li>
+        <li>Garden Salad</li>
+        <li>Cabbage Salad</li>
+        <li>Istanbul-style Rice</li>
+        <li>Hot Chips</li>
+      </ul>
     </section>
 
-    <section class="cat" id="extras">
-      <div class="body">
-        <h2 class="small">Add Extras</h2>
-        <ul class="list cols">
-          <li>Cheese</li><li>Tabouli Salad</li><li>Cabbage Salad</li><li>Pickles</li><li>Flatbread</li><li>Falafel</li>
-          <li>Extra Meat</li><li>Extra Box Side</li><li>Hot Chips Combo</li><li>Extra Skewer</li><li>Additional Sauce</li>
-        </ul>
-      </div>
+    <section class="box" id="sauces">
+      <h2>Sauces</h2>
+      <ul class="list two">
+        <li>Hummus</li>
+        <li>Yoghurt, Mint &amp; Garlic</li>
+        <li>Istanbul Hot Sauce</li>
+        <li>Classic Chilli</li>
+        <li>Sweet Chilli</li>
+        <li>Mayonnaise</li>
+        <li>Tomato</li>
+        <li>BBQ</li>
+      </ul>
+    </section>
+
+    <section class="box" id="extras">
+      <h2>Add Extras</h2>
+      <ul class="plist">
+        <li>Cheese <span>$1.50</span></li>
+        <li>Tabouli Salad <span>$1.50</span></li>
+        <li>Cabbage Salad <span>$1.50</span></li>
+        <li>Pickles <span>$1.50</span></li>
+        <li>Flatbread <span>$1.00</span></li>
+        <li>Falafel <span>$2.50</span></li>
+        <li>Extra Meat <span>$4.00</span></li>
+        <li>Extra Box Side <span>$4.00</span></li>
+        <li>Hot Chips Combo <span>$3.95</span></li>
+        <li>Extra Skewer <span>$11.95</span></li>
+        <li>Additional Sauce <span>$1.00</span></li>
+      </ul>
     </section>
 
   </main>
 
-  <footer class="mfoot">
-    <p class="pricebox">Prices vary by location. Please see the menu board in store.</p>
-    <p><em class="veg">V</em> = vegetarian &nbsp;&middot;&nbsp; 100% halal</p>
-    <p>Find us at 25 Martin Place, Barangaroo, Central Plaza and Macquarie University.<br /><a href="../#locations">Locations and hours</a> &nbsp;&middot;&nbsp; <a href="tel:+61424996666">0424 996 666</a></p>
+  <footer class="wrap">
+    <p class="legend"><i class="sz" aria-hidden="true">S</i>Small &nbsp; <i class="sz" aria-hidden="true">R</i>Regular &nbsp; <i class="sz" aria-hidden="true">L</i>Large &nbsp;&middot;&nbsp; <em class="v">V</em> Vegetarian &nbsp;&middot;&nbsp; 100% halal</p>
+    <p>Prices as at September 2026, the same at all four shops.</p>
+    <div class="shops">
+      <a href="../martin-place/">25 Martin Place</a>
+      <a href="../barangaroo/">Barangaroo</a>
+      <a href="../central-plaza/">Central Plaza</a>
+      <a href="../macquarie/">Macquarie University</a>
+    </div>
+    <p><a href="../">Eat Istanbul home</a> &nbsp;&middot;&nbsp; <a href="tel:+61424996666">0424 996 666</a></p>
   </footer>
 
 </body>

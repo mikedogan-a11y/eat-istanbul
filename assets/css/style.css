@@ -469,3 +469,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   .dish-grid { grid-template-columns: 1fr; }
   .gallery-strip { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* location subpage: single "this shop" card, centered */
+.loc-grid--single{grid-template-columns:minmax(0,460px);justify-content:center;}

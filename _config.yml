@@ -1,0 +1,4 @@
+# GitHub Pages (Jekyll) build settings. Keep maintainer files off the public site.
+exclude:
+  - README.md
+  - netlify.toml
